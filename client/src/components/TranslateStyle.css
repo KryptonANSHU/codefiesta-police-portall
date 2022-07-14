@@ -1,0 +1,112 @@
+.parent2{
+    /* border: 2px solid black; */
+    height: 90vh;
+    display: flex;
+    font-family: 'Roboto Mono', monospace;
+}
+
+.left2{
+    width: 40%;
+    /* border: 2px solid green; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.left2 h1{
+    margin: 20px;
+    font-size: 30px;
+    font-weight: 600;
+   text-decoration: underline;
+    /* background-color: aqua; */
+    color: red;
+}
+
+.middle2{
+        width: 20%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+
+}
+
+.right2{
+    width: 40%;
+    /* border: 2px solid green; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.right2 h1{
+    margin: 20px;
+    font-size: 30px;
+    font-weight: 600;
+    text-decoration: underline;
+    color: green;
+}
+
+.card-5{
+    background-color: blanchedalmond;
+}
+.middle2 button {
+    color: #fff;
+    border: 3px solid #050505;
+    padding: 15px;
+    font-size: 20px;
+    background-image: -webkit-linear-gradient(30deg, #de7f20 50%, transparent 50%);
+    background-image: linear-gradient(30deg, #e6981a 50%, transparent 50%);
+    background-size: 800px;
+    background-repeat: no-repeat;
+    background-position: 0%;
+    -webkit-transition: background 300ms ease-in-out;
+    transition:  background 400ms ease-out;
+    margin-top:30px
+  }
+.middle2 button:hover {
+    background-position: 100%;
+    color: #000000;
+  }
+  
+  
+textarea {
+    margin-top: 10px;
+    margin-left: 50px;
+    width: 600px;
+    height: 630px;
+    background-color: blanchedalmond;
+    color: red;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 1.2em;
+    font-weight: 500;
+    outline: none;
+    border: none;
+    padding: 5px 8px;
+    transition: background-color 0.2s ease 0s;
+  }
+  
+
+  .right2 p{
+    color: green;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 1.1em;
+    font-weight: 500;
+  }
+
+  .left2 p{
+    color: red;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 1.2em;
+    font-weight: 500;
+  }
+
+  .middle2 h1{
+    font-size: 15x;
+    background-color: rgb(242, 231, 211);
+    border-radius: 5px;
+    padding: 10px;
+    font-weight: bolder;
+    text-transform: uppercase;
+  }
