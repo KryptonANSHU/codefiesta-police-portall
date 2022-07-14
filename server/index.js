@@ -26,6 +26,6 @@ app.use("/signup", registerRoutes)
 app.use("/login", loginRoutes)
 
 
-const server = app.listen(process.env.PORT,()=>{
+const server = app.listen(process.env.port,()=>{
     console.log(`Backend server is working on https://localhost:${process.env.PORT}`)
 })
