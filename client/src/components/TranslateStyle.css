@@ -83,7 +83,7 @@ textarea {
     font-weight: 500;
     outline: none;
     border: none;
-    padding: 5px 8px;
+    padding: 0px 20px ;
     transition: background-color 0.2s ease 0s;
   }
   
@@ -109,4 +109,18 @@ textarea {
     padding: 10px;
     font-weight: bolder;
     text-transform: uppercase;
+    text-align: center;
   }
+  
+.aiwe{
+  background-color: rgb(242, 231, 211);
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.aiwe p{
+  text-align: center;
+  background-color: rgb(236, 206, 151);
+  /* border-radius: 5px; */
+  line-height: 20px;
+}

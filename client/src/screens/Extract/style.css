@@ -105,6 +105,9 @@
   margin-top: 10px;
 }
 
+.middle2 input{
+  margin: 20px;
+}
 
 .card {
   width: 85%;
@@ -141,7 +144,7 @@
 }
 
 input[type="file"]{
-  /* color:rgb(227, 208, 155); */
+
   position: relative;
   left: 93px;
   }

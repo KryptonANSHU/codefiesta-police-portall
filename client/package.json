@@ -25,7 +25,8 @@
     "universal-cookie": "^4.0.4",
     "use-places-autocomplete": "^4.0.0",
     "web-vitals": "^2.1.4",
-    "worker-loader": "^3.0.8"
+    "worker-loader": "^3.0.8",
+    "xlsx": "^0.18.5"
   },
   "scripts": {
     "start": "react-scripts start",

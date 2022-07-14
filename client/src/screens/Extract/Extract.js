@@ -19,7 +19,7 @@ const onFileChange =(e)=>{
   setFile(e.target.files[0])
   const type = e.target.files[0].type;
   console.log(type)
-  if(type !== "image/png"){
+  if(type === "application/pdf"){
     alert('Please Use Screenshots of PDF (Not PDF)....This Feature is Yet to be Implemented')
   }
 }
