@@ -10,22 +10,22 @@ const Translate = () => {
   // const [english,setEnglish] =useState("")
 
 
-  const excelToEnglish = (payload2)=>{
-    fetch('https://translation.googleapis.com/language/translate/v2?key=AIzaSyADNPAFEau5uw-bYuae94Xb4O-5VkimLnM',{
-      method: 'POST',
-      headers:{
-        'Content-Type':'application/json',
-      },
-      body: JSON.stringify(payload2),
-  })
-  .then(response => response.json())
-  .then(data => {
-    console.log('Success:', data.data.translations[0].translatedText);
-  })
-  .catch((error) => {
-    console.error('Error:', error);
-  });
- }
+//   const excelToEnglish = (payload2)=>{
+//     fetch('https://translation.googleapis.com/language/translate/v2?key=AIzaSyDj7UKPO-Y55t4xEiHLCm2fGtI-uHSbvy4',{
+//       method: 'POST',
+//       headers:{
+//         'Content-Type':'application/json',
+//       },
+//       body: JSON.stringify(payload2),
+//   })
+//   .then(response => response.json())
+//   .then(data => {
+//     console.log('Success:', data.data.translations[0].translatedText);
+//   })
+//   .catch((error) => {
+//     console.error('Error:', error);
+//   });
+//  }
  
   const readExcel = (file) => {
     const promise = new Promise((resolve, reject) => {
@@ -88,12 +88,9 @@ const run=()=>{
   
   const convertToEnglish = (payload)=>{
     
-    // const payload = {
-    //   "q": english,
-    //   "target":"eng",
-    // }
 
-  fetch('https://translation.googleapis.com/language/translate/v2?key=AIzaSyADNPAFEau5uw-bYuae94Xb4O-5VkimLnM',{
+
+  fetch('https://translation.googleapis.com/language/translate/v2?key=AIzaSyDj7UKPO-Y55t4xEiHLCm2fGtI-uHSbvy4',{
     method: 'POST',
     headers:{
       'Content-Type':'application/json',
