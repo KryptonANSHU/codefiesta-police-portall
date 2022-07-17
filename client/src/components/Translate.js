@@ -9,23 +9,6 @@ const Translate = () => {
   // const [result,setResult] = useState([]);
   // const [english,setEnglish] =useState("")
 
-
-//   const excelToEnglish = (payload2)=>{
-//     fetch('https://translation.googleapis.com/language/translate/v2?key=AIzaSyDj7UKPO-Y55t4xEiHLCm2fGtI-uHSbvy4',{
-//       method: 'POST',
-//       headers:{
-//         'Content-Type':'application/json',
-//       },
-//       body: JSON.stringify(payload2),
-//   })
-//   .then(response => response.json())
-//   .then(data => {
-//     console.log('Success:', data.data.translations[0].translatedText);
-//   })
-//   .catch((error) => {
-//     console.error('Error:', error);
-//   });
-//  }
  
   const readExcel = (file) => {
     const promise = new Promise((resolve, reject) => {
@@ -65,14 +48,14 @@ const run=()=>{
       console.log(i)
       const payload2 = {
         "q": i.word,
-        "target":"eng",
+        "target":"en",
       }
         convertToEnglish(payload2)
     });
   }else{
     const payload2 = {
       "q": items,
-      "target":"eng",
+      "target":"en",
     }
 
     convertToEnglish(payload2)

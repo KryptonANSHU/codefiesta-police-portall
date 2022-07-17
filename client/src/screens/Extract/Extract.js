@@ -8,7 +8,7 @@ const Extract= () => {
   const [file,setFile] =useState();
 const [progress,setProgress] = useState(0);
 const [result,setResult] =useState();
-const [language,setLanguage] =useState('eng');
+const [language,setLanguage] =useState('en');
 
 
 const [lang,setLang] = useState()
@@ -50,7 +50,7 @@ const payload = {
   "target":"en",
 }
 
-fetch('https://translation.googleapis.com/language/translate/v2?key=AIzaSyADNPAFEau5uw-bYuae94Xb4O-5VkimLnM',{
+fetch('https://translation.googleapis.com/language/translate/v2?key=AIzaSyDj7UKPO-Y55t4xEiHLCm2fGtI-uHSbvy4',{
       method: 'POST',
       headers:{
         'Content-Type':'application/json',
