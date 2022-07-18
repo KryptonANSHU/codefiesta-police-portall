@@ -9,7 +9,7 @@ const Extract= () => {
 const [progress,setProgress] = useState(0);
 const [result,setResult] =useState();
 const [language,setLanguage] =useState('en');
-const [tl,setTl] = useState('')
+const [tl,setTl] = useState({})
 
 
 const [lang,setLang] = useState()
@@ -69,13 +69,16 @@ fetch('https://translation.googleapis.com/language/translate/v2?key=AIzaSyDj7UKP
   }); 
 
 
-  fetch(`/lang/${lang}`).then(
+  fetch(`http://127.0.0.1:5000/lang/${language}`).then(
     res=>res.json()
-  ).then(
-    data=>{
+  ).then((data)=>{
+      console.log('hi')
       console.log(data)
-    }
-  )
+      setTl(data)
+  })
+  .catch((err)=>{
+    console.log(err)
+  })
 
 })
 }
@@ -148,7 +151,7 @@ fetch('https://translation.googleapis.com/language/translate/v2?key=AIzaSyDj7UKP
         {
       (tl !== "" && (
         <>
-        <p> {tl}</p> 
+        <p> {tl.tl}</p> 
         </>
       ))
     }  

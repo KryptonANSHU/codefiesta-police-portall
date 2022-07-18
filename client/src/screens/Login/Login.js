@@ -47,11 +47,11 @@ function Login() {
             </div>
             <div className='py-5'>
               <h2 className='text-3xl text-yellow-400 font-bold mb-2'>
-                Log in to your Account
+                Enter Police Station ID & Password
               </h2>
               <div className='border-2 w-40 border-yellow-400 inline-block mb-2'></div>
             </div>
-            <div className='flex justify-center my-2'>
+            {/* <div className='flex justify-center my-2'>
               <a
                 href='facebook.com'
                 className='border-2 border-yellow-300 rounded-full p-3 mx-2'
@@ -70,8 +70,8 @@ function Login() {
               >
                 <FaGoogle className='text-md'></FaGoogle>
               </a>
-            </div>
-            <p className='text-black my-3'>or use your email account</p>
+            </div> */}
+            <p className='text-black my-3'></p>
 
             <Snackbar
               open={invalidUser}
@@ -91,7 +91,7 @@ function Login() {
                   <input
                     type='text'
                     name='username'
-                    placeholder='Username'
+                    placeholder='Police Station ID'
                     className='outline-none text-md flex-1'
                   />
                 </div>
@@ -118,7 +118,7 @@ function Login() {
             {/* Input div ends Here */}
           </div>
           <div className='w-2/5 bg-yellow-400 text-black rounded-tr-2xl rounded-br-2xl py-36 px-12'>
-            <h2 className='text-3xl font-bold mb-2'>Hello, Friends</h2>
+            <h2 className='text-3xl font-bold mb-2'>Enter New Police Station??(Only IPS)</h2>
             <div className='border-2 w-20 border-black inline-block mb-2'></div>
             <p className='mb-10'>
              

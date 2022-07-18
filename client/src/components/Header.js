@@ -49,7 +49,7 @@ function Header() {
             </Tabs>
 
 
-            <Btn onClick={() => navigate("/signup")}>SignUp</Btn>
+            {/* <Btn onClick={() => navigate("/signup")}>SignUp</Btn> */}
             <Btn onClick={() => navigate("/login")}>LogIn</Btn>
           </Box>
 
