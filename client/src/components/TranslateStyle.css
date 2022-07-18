@@ -51,6 +51,15 @@
 .card-5{
     background-color: blanchedalmond;
 }
+
+.card2 {
+  width: 85%;
+  background: rgb(239, 220, 198);
+  border-radius: 2px;
+  margin: 2rem;
+  position: relative;
+}
+
 .middle2 button {
     color: #fff;
     border: 3px solid #050505;

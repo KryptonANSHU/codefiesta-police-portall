@@ -61,12 +61,7 @@ const run=()=>{
     convertToEnglish(payload2)
   }
   
-//   items.map((i)=>{
-//     for(let key in i){
-//     <p>Helloe</p>
-//   }
-// })
- 
+
 }
   
   const convertToEnglish = (payload)=>{
@@ -103,7 +98,7 @@ setItems(event.target.value);
   return (
     <div className='parent2'>
 
-      <div className='left2 card card-5'>
+      <div className='left2 card2 card-5'>
       <h1>Input Text</h1>
 
 <textarea placeholder="Copy/Enter text in any Regional Language" rows="80"   id="message"
@@ -126,24 +121,24 @@ setItems(event.target.value);
           readExcel(file);
         }}
       />
-        {/* <h1>Regional Language Translator</h1> */}
         <button onClick={run}> Convert to English</button>
-        {/* <button onClick={run}>  Excel to English</button> */}
       </div>
 
-      <div className='right2 card card-5'>
+      <div className='right2 card2 card-5'>
       <h1>English Text</h1>
       {
 
       (final !== "" && (
         final.map((i)=>{
-         return <p>{i}</p>
+         return (<p>{i}</p>)
         })
       ))
       }
       </div>
 
     </div>
+    
+
     )
 }
 

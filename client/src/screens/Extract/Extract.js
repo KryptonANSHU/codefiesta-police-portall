@@ -9,6 +9,7 @@ const Extract= () => {
 const [progress,setProgress] = useState(0);
 const [result,setResult] =useState();
 const [language,setLanguage] =useState('en');
+const [tl,setTl] = useState('')
 
 
 const [lang,setLang] = useState()
@@ -30,6 +31,7 @@ const processImage =()=>{
   setResult("");
   setProgress(0);
   setLang("");
+  setTl("");
 
 
 Tesseract.recognize(
@@ -65,6 +67,15 @@ fetch('https://translation.googleapis.com/language/translate/v2?key=AIzaSyDj7UKP
   .catch((error) => {
     console.error('Error:', error);
   }); 
+
+
+  fetch(`/lang/${lang}`).then(
+    res=>res.json()
+  ).then(
+    data=>{
+      console.log(data)
+    }
+  )
 
 })
 }
@@ -112,7 +123,6 @@ fetch('https://translation.googleapis.com/language/translate/v2?key=AIzaSyDj7UKP
 
     <section className="middle3 card card-5" >
     <h1>Extracted Data</h1>
-    
     {
       (result !== "" && (
         <>
@@ -122,14 +132,23 @@ fetch('https://translation.googleapis.com/language/translate/v2?key=AIzaSyDj7UKP
     } 
     </section>
     
-
-    <section className="right3 card card-5" >
+     <section className="right3 card card-5" >
         <h1>English Output</h1>
-
         {
       (lang !== "" && (
         <>
         <p> {lang}</p> 
+        </>
+      ))
+    }  
+   </section>
+
+     <section className="right3 card card-5" >
+        <h1>Transliterated Output</h1>
+        {
+      (tl !== "" && (
+        <>
+        <p> {tl}</p> 
         </>
       ))
     }  
