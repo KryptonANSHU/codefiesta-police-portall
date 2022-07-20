@@ -48,7 +48,8 @@ const Translate = () => {
     ).then((data)=>{
         console.log('hi')
         console.log(data)
-        setFinal(data)
+        const res = data[0].toUpperCase()+data.substring(1)
+        setFinal(res)
     })
     .catch((err)=>{
       console.log(err)
