@@ -9,10 +9,12 @@ const Extract= () => {
 const [progress,setProgress] = useState(0);
 const [result,setResult] =useState();
 const [language,setLanguage] =useState('en');
-const [tl,setTl] = useState({})
-
-
+const [tl,setTl] = useState()
 const [lang,setLang] = useState()
+
+// lang --> English Translated data
+// language --> detected language
+
 // const [convert,setConvert] = useState()
 
 const onFileChange =(e)=>{
@@ -63,13 +65,8 @@ fetch('https://translation.googleapis.com/language/translate/v2?key=AIzaSyDj7UKP
   .then(data => {
     console.log('Success:', data);
     setLang(data.data.translations[0].translatedText)
-  })
-  .catch((error) => {
-    console.error('Error:', error);
-  }); 
-
-
-  fetch(`http://127.0.0.1:5000/lang/${language}`).then(
+    console.log(result);
+    fetch(`http://127.0.0.1:5000/lang/${language}/${result}`).then(
     res=>res.json()
   ).then((data)=>{
       console.log('hi')
@@ -79,6 +76,13 @@ fetch('https://translation.googleapis.com/language/translate/v2?key=AIzaSyDj7UKP
   .catch((err)=>{
     console.log(err)
   })
+  })
+  .catch((error) => {
+    console.error('Error:', error);
+  }); 
+
+
+  
 
 })
 }
@@ -142,16 +146,19 @@ fetch('https://translation.googleapis.com/language/translate/v2?key=AIzaSyDj7UKP
         <>
         <p> {lang}</p> 
         </>
+
+
       ))
     }  
    </section>
+   
 
      <section className="right3 card card-5" >
         <h1>Transliterated Output</h1>
         {
       (tl !== "" && (
         <>
-        <p> {tl.tl}</p> 
+        <p> {tl}</p> 
         </>
       ))
     }  

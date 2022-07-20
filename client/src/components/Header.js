@@ -43,8 +43,8 @@ function Header() {
             >
 
 
+              <Tab label='Transliterate' onClick={() => navigate("/translate")} />
               <Tab label='Extract Data' onClick={() => navigate("/extract")} />
-              <Tab label='Translate' onClick={() => navigate("/translate")} />
               <Tab label='Maps' onClick={() => navigate("/map")} />
             </Tabs>
 

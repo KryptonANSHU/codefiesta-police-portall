@@ -1,151 +1,115 @@
-import {useState } from 'react';
+import { useState } from "react";
 import * as XLSX from "xlsx";
-import './TranslateStyle.css'
+import "./TranslateStyle.css";
 const Translate = () => {
-
   const [items, setItems] = useState([]);
-  const [final,setFinal] = useState([]);
-  const arr = []
+  const [final, setFinal] = useState([]);
+  const [lang,setLang] = useState()
+  const [language,setLanguage] =useState('en');
+  const arr = [];
   // const [result,setResult] = useState([]);
   // const [english,setEnglish] =useState("")
 
- 
-  const readExcel = (file) => {
-    const promise = new Promise((resolve, reject) => {
-      const fileReader = new FileReader();
-      fileReader.readAsArrayBuffer(file);
+  // const readExcel = (file) => {
 
-      fileReader.onload = (e) => {
-        const bufferArray = e.target.result;
+  //   const promise = new Promise((resolve, reject) => {
+  //     const fileReader = new FileReader();
 
-        const wb = XLSX.read(bufferArray, { type: "buffer" });
+  //     fileReader.readAsArrayBuffer(file);
 
-        const wsname = wb.SheetNames[0];
+  //     fileReader.onload = (e) => {
+  //       const bufferArray = e.target.result;
 
-        const ws = wb.Sheets[wsname];
+  //       const wb = XLSX.read(bufferArray, { type: "buffer" });
 
-        const data = XLSX.utils.sheet_to_json(ws);
+  //       const wsname = wb.SheetNames[0];
 
-        resolve(data);
-      };
+  //       const ws = wb.Sheets[wsname];
 
-      fileReader.onerror = (error) => {
-        reject(error);
-      };
-    });
+  //       const data = XLSX.utils.sheet_to_json(ws);
 
-    promise.then((d) => {
-      setItems(d);
-    });
+  //       resolve(data);
+  //     };
+
+  //     fileReader.onerror = (error) => {
+  //       reject(error);
+  //     };
+  //   });
+
+  //   promise.then((d) => {
+  //     setItems(d);
+  //   });
+  // };
+
+  const run = () => {
+
+    fetch(`http://127.0.0.1:5000/lang/${language}/${items}`).then(
+      res=>res.json()
+    ).then((data)=>{
+        console.log('hi')
+        console.log(data)
+        setFinal(data)
+    })
+    .catch((err)=>{
+      console.log(err)
+    })
+  
   };
 
 
-const run=()=>{
-  console.log(typeof(items))
 
-  if(typeof(items) === 'object'){
-    items.forEach(i => {
-      console.log(i)
-      const payload2 = {
-        "q": i.word,
-        "target":"en",
-      }
-        convertToEnglish(payload2)
-    });
-  }else{
-    const payload2 = {
-      "q": items,
-      "target":"en",
-    }
+  const handleMessageChange = (event) => {
+    setItems(event.target.value);
+  };
 
-    convertToEnglish(payload2)
-  }
-  
+  return (
+    <div className="parent2">
+      <div className="left2 card2 card-5">
+        <h1>Input Text</h1>
 
-}
-  
-  const convertToEnglish = (payload)=>{
+        <textarea
+          placeholder="Copy/Enter text in any Regional Language"
+          rows="80"
+          id="message"
+          name="message"
+          value={items}
+          onChange={handleMessageChange}
+          cols="40"
+        ></textarea>
+      </div>
+
+      <div className="middle2">
     
+       <span>Choose State or language</span>
+   <select value ={language} onChange={e=>setLanguage(e.target.value)}>
+      <option value="eng">ENGLISH</option>
+      <option value="tam">Tamil Nadu -- Tamil</option>
+      <option value="hin">Uttar Pradesh -- Hindi</option>
+      <option value="kan">Karnataka -- Kannada</option>
+      <option value="mar">Maharashtra -- Marathi</option>
+      <option value="hin">Rajasthan -- Hindi</option>
+      <option value="hin">Chattisgarh -- Hindi</option>
+      <option value="hin">Madhya Pradesh -- Hindi</option>
+      <option value="tam">Pudducherry -- Tamil</option>
+      <option value="hin">Bihar -- Hindi</option>
+      <option value="hin">Haryana -- Hindi</option>
+      <option value="pan">Punjab -- Punjabi</option>
+      <option value="tel">Andhra Pradesh -- Telgu</option>
+      <option value="ori">Orrisa -- Oriya</option>
+      <option value="mal">Kerela -- Malayam</option>
+      <option value="guj">Gujrat -- Gujrati</option>
+    </select>
+        <button onClick={run}> Transliterate </button>
+      </div>
 
-
-  fetch('https://translation.googleapis.com/language/translate/v2?key=AIzaSyDj7UKPO-Y55t4xEiHLCm2fGtI-uHSbvy4',{
-    method: 'POST',
-    headers:{
-      'Content-Type':'application/json',
-    },
-    body: JSON.stringify(payload),
-})
-.then(response => response.json())
-.then(data => {
-  console.log('Success:', data);
-  arr.push(data.data.translations[0].translatedText)
-  setFinal(arr)
-  // setFinal(data.data.translations[0].translatedText)
-})
-.catch((error) => {
-  console.error('Error:', error);
-}); 
-}
-
-
-const handleMessageChange = event => {
-setItems(event.target.value);
+      <div className="right2 card2 card-5">
+        <h1>Transliterated Text</h1>
+        {final !== "" && <p>{final}</p>}
+      </div>
+    </div>
+  );
 };
 
-
-  
-  
-  return (
-    <div className='parent2'>
-
-      <div className='left2 card2 card-5'>
-      <h1>Input Text</h1>
-
-<textarea placeholder="Copy/Enter text in any Regional Language" rows="80"   id="message"
-        name="message"
-        value={items}
-        onChange={handleMessageChange} 
-        cols="40"></textarea>
-       
-      </div>
-
-      <div className='middle2'>
-      <div className='aiwe'>
-      <h1>Choose a Excel File or Input Text Manually</h1>
-      <p>Note: Heading for the coloumn of excel data that is to be converted should be 'word'</p>
-      </div>
-      <input
-        type="file"
-        onChange={(e) => {
-          const file = e.target.files[0];
-          readExcel(file);
-        }}
-      />
-        <button onClick={run}> Convert to English</button>
-      </div>
-
-      <div className='right2 card2 card-5'>
-      <h1>English Text</h1>
-      {
-
-      (final !== "" && (
-        final.map((i)=>{
-         return (<p>{i}</p>)
-        })
-      ))
-      }
-      </div>
-
-    </div>
-    
-
-    )
-}
-
-export default Translate
+export default Translate;
 
 // --------------------------------------------------------------------------
-
-
-
-
